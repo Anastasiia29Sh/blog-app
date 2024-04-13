@@ -31,6 +31,12 @@ export const usePostStore = defineStore('post', () => {
 			allPosts.value[i].comments = postComments
 		}
 	}
+
+	function sortPosts(posts: Post[]){
+		return posts.sort((a, b) => {
+			return Date.parse(b.dateTime) - Date.parse(a.dateTime);
+		});
+	}
 	
-	return { allPosts, createPost, getPosts, getPostsComments }
+	return { allPosts, createPost, getPosts, getPostsComments, sortPosts }
 })

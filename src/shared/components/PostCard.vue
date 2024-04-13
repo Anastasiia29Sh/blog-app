@@ -3,9 +3,15 @@ import { ref } from "vue";
 import { Post } from "@/shared/types/common";
 import { useUserStore } from "@/shared/store/userStore";
 
-const props = defineProps<{
-  post: Post;
-}>();
+const props = withDefaults(
+  defineProps<{
+    post: Post;
+    edit?: boolean;
+  }>(),
+  {
+    edit: false,
+  }
+);
 
 const userStore = useUserStore();
 
@@ -13,12 +19,37 @@ userStore.getUserOnePost(props.post.id);
 
 const userPost = ref(userStore.userOnePost);
 
-console.log(userPost.value);
+function editPost() {
+  alert("eddit");
+}
+
+function deletePost() {
+  alert("del");
+}
 </script>
 
 <template>
   <div class="post-card" @click.self="$router.push(`/post/${post.id}`)">
-    <h3 class="p-text-xl-bold">{{ post.title }}</h3>
+    <div class="title-post">
+      <h3 class="p-text-lg-bold">{{ post.title }}</h3>
+
+      <div v-if="edit" class="action">
+        <img
+          src="@/assets/icons/pen.svg"
+          alt=""
+          class="icon"
+          title="редактировать"
+          @click="editPost"
+        />
+        <img
+          src="@/assets/icons/basket.svg"
+          alt=""
+          class="icon"
+          title="удалить"
+          @click="deletePost"
+        />
+      </div>
+    </div>
 
     <div class="p-text-sm date-avtor">
       <time :datetime="post.dateTime" class="date">
@@ -66,6 +97,17 @@ console.log(userPost.value);
   &:hover {
     border-color: $primaryColor;
   }
+}
+
+.title-post {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
 }
 
 .date-avtor {

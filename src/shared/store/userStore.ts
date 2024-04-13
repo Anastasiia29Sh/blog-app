@@ -10,6 +10,7 @@ export const useUserStore = defineStore('user', () => {
 	const allPosts = ref<Post[]>([])
 	const allUsers = ref<User[]>([])
 	const userOnePost = ref<User>()
+	const user = ref<User>()
 
 	function createUser(user: User) {
 		getUsers()
@@ -33,9 +34,17 @@ export const useUserStore = defineStore('user', () => {
 		}
 	}
 
+	// получить данные автора конкретного поста
 	function getUserOnePost(idPost: number) {
 		userOnePost.value = allUsers.value.find((f) => f.post?.find((p) => p.id === idPost))
 	}
+
+	// получить данные определенного автора
+	function getUserId(idUser: number){
+		getUsersPosts()
+		
+		user.value = allUsers.value.find((f) => f.id === idUser)
+	}
 	
-	return { allUsers, userOnePost, createUser, getUsers, getUsersPosts, getUserOnePost }
+	return { allUsers, userOnePost, user, createUser, getUsers, getUsersPosts, getUserOnePost, getUserId }
 })

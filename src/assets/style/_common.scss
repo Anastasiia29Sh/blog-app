@@ -10,24 +10,36 @@
 //   font-weight: normal;
 // }
 
-.p-text-xl {
+.p-text-xxl {
   font-size: 26px;
+}
+
+.p-text-xxl-bold {
+	@extend .p-text-xxl, .p-fw-bold;
+}
+
+.p-text-xl {
+  font-size: 24px;
 }
 
 .p-text-xl-bold {
 	@extend .p-text-xl, .p-fw-bold;
 }
 
-// .p-text-lg {
-//   font-size: 24px;
-// }
+.p-text-lg {
+  font-size: 22px;
+}
 
-// .p-text-lg--bold {
-//   @extend .p-text-lg, .p-fw-bold;
-// }
+.p-text-lg--bold {
+  @extend .p-text-lg, .p-fw-bold;
+}
 
 .p-text-md {
   font-size: 18px;
+}
+
+.p-text-md--bold {
+  @extend .p-text-md, .p-fw-bold;
 }
 
 .p-text-base {

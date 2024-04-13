@@ -13,9 +13,7 @@ userStore.getUsersPosts();
 
 const allPosts = ref(computed(() => postStore.allPosts));
 
-allPosts.value.sort((a, b) => {
-  return Date.parse(b.dateTime) - Date.parse(a.dateTime);
-});
+allPosts.value = postStore.sortPosts(allPosts.value);
 </script>
 
 <template>
