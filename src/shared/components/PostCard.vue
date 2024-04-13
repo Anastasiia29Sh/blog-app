@@ -1,20 +1,36 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { Post } from "@/shared/types/common";
+import { useUserStore } from "@/shared/store/userStore";
 
-defineProps<{
+const props = defineProps<{
   post: Post;
 }>();
+
+const userStore = useUserStore();
+
+userStore.getUserOnePost(props.post.id);
+
+const userPost = ref(userStore.userOnePost);
+
+console.log(userPost.value);
 </script>
 
 <template>
-  <div class="post-card">
+  <div class="post-card" @click.self="$router.push(`/post/${post.id}`)">
     <h3 class="p-text-xl-bold">{{ post.title }}</h3>
 
     <div class="p-text-sm date-avtor">
-      <span>{{ post.dateTime }}</span>
+      <time :datetime="post.dateTime" class="date">
+        {{ new Date(post.dateTime).toLocaleString() }}
+      </time>
       <span>
         Автор:
-        <router-link to="#" class="link link-avtor">Ира Петрова</router-link>
+        <router-link
+          :to="{ name: 'user', params: { id: userPost?.id } }"
+          class="link link-avtor"
+          >{{ userPost?.fullName }}
+        </router-link>
       </span>
     </div>
 
@@ -23,10 +39,14 @@ defineProps<{
     <div class="footer-card">
       <div class="comment">
         <img src="@/assets/icons/comment.svg" alt="" class="icon" />
-        <span>1</span>
+        <span>{{ post.comments?.length }}</span>
       </div>
 
-      <router-link to="#" class="link link-more">Подробнее &rarr;</router-link>
+      <router-link
+        :to="{ name: 'post', params: { id: post.id } }"
+        class="link link-more"
+        >Подробнее &rarr;
+      </router-link>
     </div>
   </div>
 </template>

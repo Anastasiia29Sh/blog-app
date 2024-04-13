@@ -21,5 +21,5 @@ export interface User {
 	id: number,
 	fullName: string,
 	blogName: string,
-	post: Post[]
+	post?: Post[]
 }

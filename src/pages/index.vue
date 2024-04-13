@@ -3,14 +3,19 @@ import { ref, computed } from "vue";
 import PostCard from "@/shared/components/PostCard.vue";
 
 import { usePostStore } from "@/shared/store/postStore";
+import { useUserStore } from "@/shared/store/userStore";
 
 const postStore = usePostStore();
+const userStore = useUserStore();
 
-postStore.getPosts();
+postStore.getPostsComments();
+userStore.getUsersPosts();
 
 const allPosts = ref(computed(() => postStore.allPosts));
 
-// console.log(allPosts.value);
+allPosts.value.sort((a, b) => {
+  return Date.parse(b.dateTime) - Date.parse(a.dateTime);
+});
 </script>
 
 <template>

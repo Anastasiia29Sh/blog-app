@@ -11,6 +11,26 @@ const routes: Array<RouteRecordRaw> = [
     },
     component: () => import('@/pages/index.vue'),
   },
+  {
+    path: '/user/:id',
+    name: 'user',
+    meta: {
+      title: 'front page',
+      keepAlive: true,
+      requireAuth: true
+    },
+    component: () => import('@/pages/user.vue'),
+  },
+  {
+    path: '/post/:id',
+    name: 'post',
+    meta: {
+      title: 'front page',
+      keepAlive: true,
+      requireAuth: true
+    },
+    component: () => import('@/pages/post.vue'),
+  },
 ];
 
 const router = createRouter({

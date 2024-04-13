@@ -3,11 +3,7 @@ import { useInitialDataStore } from "@/shared/store/initialDataStore";
 
 const initialDataStore = useInitialDataStore();
 
-// вынести в stor в функцию, которую потом здесь вызывать!!!
-// Проверка наличия данных в local storage и инициализация начальных данных при необходимости
-if (!localStorage.getItem("posts")) {
-  initialDataStore.initializeData();
-}
+initialDataStore.initializeData();
 
 // import NoteCard from "./shared/components/NoteCard.vue";
 </script>
