@@ -1,0 +1,13 @@
+@import './common';
+
+
+body {
+	width: 900px;
+	margin: 0 auto;
+	padding: 0;
+	border: 1px solid $primaryColor;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+}

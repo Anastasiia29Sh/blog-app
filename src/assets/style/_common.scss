@@ -1,0 +1,51 @@
+.p-fw-bold {
+  font-weight: 700;
+}
+
+// .p-fw-medium {
+//   font-weight: 500;
+// }
+
+// .p-fw-regular {
+//   font-weight: normal;
+// }
+
+.p-text-xl {
+  font-size: 26px;
+}
+
+.p-text-xl-bold {
+	@extend .p-text-xl, .p-fw-bold;
+}
+
+// .p-text-lg {
+//   font-size: 24px;
+// }
+
+// .p-text-lg--bold {
+//   @extend .p-text-lg, .p-fw-bold;
+// }
+
+.p-text-md {
+  font-size: 18px;
+}
+
+.p-text-base {
+  font-size: 16px;
+}
+
+.p-text-sm {
+  font-size: 16px;
+}
+
+// .p-text-base--medium {
+//   @extend .p-text-base, .p-fw-medium;
+// }
+
+.p-text-base--bold {
+  @extend .p-text-base, .p-fw-bold;
+}
+
+.link {
+	text-decoration: none;
+}
