@@ -62,7 +62,7 @@ onClickOutside(modal, () => (isDelete.value = false));
     </div>
 
     <div class="p-text-sm date-avtor">
-      <time :datetime="post.dateTime" class="date">
+      <time :datetime="post.dateTime">
         {{ new Date(post.dateTime).toLocaleString() }}
       </time>
       <span>
@@ -78,7 +78,11 @@ onClickOutside(modal, () => (isDelete.value = false));
     <p class="p-text-md">{{ post.briefDescription }}</p>
 
     <div class="footer-card">
-      <div class="comment">
+      <div
+        class="comment"
+        @click="$router.push(`/post/${post.id}#comments`)"
+        style="cursor: pointer"
+      >
         <img src="@/assets/icons/comment.svg" alt="" class="icon" />
         <span>{{ post.comments?.length }}</span>
       </div>

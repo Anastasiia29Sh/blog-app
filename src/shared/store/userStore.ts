@@ -36,6 +36,7 @@ export const useUserStore = defineStore('user', () => {
 
 	// получить данные автора конкретного поста
 	function getUserOnePost(idPost: number) {
+		// getUsersPosts()
 		userOnePost.value = allUsers.value.find((f) => f.post?.find((p) => p.id === idPost))
 	}
 

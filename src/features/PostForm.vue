@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// import { ref, computed } from "vue";
 import { useForm, Field, ErrorMessage } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { POST_CREATE_SCHEMA } from "@/shared/types/schemas";

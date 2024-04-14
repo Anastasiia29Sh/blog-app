@@ -9,7 +9,7 @@ initialDataStore.initializeData();
 <template>
   <div class="container">
     <header class="header">
-      <router-link to="/" class="link link-avtor"> Блог </router-link>
+      <router-link to="/" class="p-text-xxl-bold link"> Блог</router-link>
     </header>
 
     <div id="app" class="app">
@@ -27,9 +27,14 @@ initialDataStore.initializeData();
 }
 
 .header {
-  height: 60px;
-  color: #fff8dc;
+  padding: 20px;
+
+  text-align: center;
   background-color: $primaryColor;
+
+  .link {
+    color: #fff8dc;
+  }
 }
 
 .app {
