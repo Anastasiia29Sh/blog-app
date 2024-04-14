@@ -4,19 +4,28 @@ import { useInitialDataStore } from "@/shared/store/initialDataStore";
 const initialDataStore = useInitialDataStore();
 
 initialDataStore.initializeData();
-
-// import NoteCard from "./shared/components/NoteCard.vue";
 </script>
 
 <template>
-  <header class="header">Блог</header>
+  <div class="container">
+    <header class="header">
+      <router-link to="/" class="link link-avtor"> Блог </router-link>
+    </header>
 
-  <div id="app" class="app">
-    <router-view />
+    <div id="app" class="app">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+.container {
+  height: 100vh;
+  overflow: auto;
+
+  position: relative;
+}
+
 .header {
   height: 60px;
   color: #fff8dc;

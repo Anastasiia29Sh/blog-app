@@ -43,7 +43,7 @@ export const useUserStore = defineStore('user', () => {
 	function getUserId(idUser: number){
 		getUsersPosts()
 		
-		user.value = allUsers.value.find((f) => f.id === idUser)
+		user.value = allUsers.value[idUser]
 	}
 	
 	return { allUsers, userOnePost, user, createUser, getUsers, getUsersPosts, getUserOnePost, getUserId }

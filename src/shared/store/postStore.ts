@@ -37,6 +37,32 @@ export const usePostStore = defineStore('post', () => {
 			return Date.parse(b.dateTime) - Date.parse(a.dateTime);
 		});
 	}
+
+	// получить id последнего поста (Это надо для создания нового поста)
+	function getIdLastPost() {
+		getPosts()
+		const count = allPosts.value.length
+		return allPosts.value[count-1].id
+	}
+
+	function getPostId(id: number) {
+		getPosts()
+		getPostsComments()
+
+		return allPosts.value.find((f) => f.id === id)
+	}
+
+	function editPost(post: Post) {
+		getPosts()
+		allPosts.value[post.id] = post
+		localStorage.setItem('posts', JSON.stringify(allPosts.value))
+	}
+
+	function deletePost(idPost: number) {
+		getPosts()
+		allPosts.value = allPosts.value.filter((f) => f.id !== idPost)
+		localStorage.setItem('posts', JSON.stringify(allPosts.value))
+	}
 	
-	return { allPosts, createPost, getPosts, getPostsComments, sortPosts }
+	return { allPosts, createPost, getPosts, getPostsComments, sortPosts, getIdLastPost, editPost, getPostId, deletePost }
 })

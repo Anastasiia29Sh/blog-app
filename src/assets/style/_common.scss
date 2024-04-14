@@ -50,9 +50,14 @@
   font-size: 16px;
 }
 
-// .p-text-base--medium {
-//   @extend .p-text-base, .p-fw-medium;
-// }
+.p-text-xs {
+  font-size: 14px;
+}
+
+.p-error-1 {
+  @extend .p-text-xs;
+  color: $error-1;
+}
 
 .p-text-base--bold {
   @extend .p-text-base, .p-fw-bold;
@@ -60,4 +65,18 @@
 
 .link {
 	text-decoration: none;
+}
+
+.input {
+  padding: 8px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+
+  &:focus{
+    outline: none !important;
+  }
+}
+
+textarea {
+  resize: none;
 }
