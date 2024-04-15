@@ -3,11 +3,20 @@ import { Comment } from "@/shared/types/common";
 
 import CommentSender from "./CommentSender.vue";
 
-defineProps<{
+import { useCommentStore } from "@/shared/store/commentStore";
+
+const props = defineProps<{
   comment: Comment;
 }>();
 
-function deleteComment() {}
+const emit = defineEmits(["update"]);
+
+const commentStore = useCommentStore();
+
+function deleteComment() {
+  commentStore.deleteComment(props.comment.id);
+  emit("update");
+}
 </script>
 
 <template>

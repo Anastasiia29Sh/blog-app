@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { computed } from "vue";
 
 import { Post } from "@/shared/types/common";
 
@@ -15,7 +15,7 @@ userStore.getUsersPosts();
 
 userStore.getUserOnePost(props.post.id);
 
-const userPost = ref(computed(() => userStore.userOnePost));
+const userPost = computed(() => userStore.userOnePost);
 </script>
 
 <template>

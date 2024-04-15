@@ -59,6 +59,11 @@
   color: $error-1;
 }
 
+.p-error-2 {
+  @extend .p-text-xs;
+  color: red;
+}
+
 .p-text-base--bold {
   @extend .p-text-base, .p-fw-bold;
 }

@@ -38,13 +38,6 @@ export const usePostStore = defineStore('post', () => {
 		});
 	}
 
-	// получить id последнего поста (Это надо для создания нового поста)
-	function getIdLastPost() {
-		getPosts()
-		const count = allPosts.value.length
-		return allPosts.value[count-1].id
-	}
-
 	function getPostId(id: number) {
 		getPosts()
 		getPostsComments()
@@ -60,9 +53,18 @@ export const usePostStore = defineStore('post', () => {
 
 	function deletePost(idPost: number) {
 		getPosts()
+		getPostsComments()
+
+		let comments = allPosts.value.find((f) => f.id === idPost)?.comments
+		if(comments){
+			for(let i = 0; i < comments?.length; i++){
+				commentStore.deleteComment(comments[i].id)
+			}
+		}
+
 		allPosts.value = allPosts.value.filter((f) => f.id !== idPost)
 		localStorage.setItem('posts', JSON.stringify(allPosts.value))
 	}
 	
-	return { allPosts, createPost, getPosts, getPostsComments, sortPosts, getIdLastPost, editPost, getPostId, deletePost }
+	return { allPosts, createPost, getPosts, getPostsComments, sortPosts, editPost, getPostId, deletePost }
 })

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import PostCard from "@/shared/components/PostCard.vue";
 
 import { usePostStore } from "@/shared/store/postStore";
@@ -11,7 +11,7 @@ const userStore = useUserStore();
 postStore.getPostsComments();
 userStore.getUsersPosts();
 
-const allPosts = ref(computed(() => postStore.allPosts));
+const allPosts = ref(postStore.allPosts);
 
 allPosts.value = postStore.sortPosts(allPosts.value);
 </script>

@@ -5,8 +5,6 @@ import { POST_CREATE_SCHEMA } from "@/shared/types/schemas";
 
 import { Post } from "@/shared/types/common";
 
-import { usePostStore } from "@/shared/store/postStore";
-
 const props = defineProps<{
   idUser: number;
   post?: Post;
@@ -14,14 +12,13 @@ const props = defineProps<{
 
 const emit = defineEmits(["submit", "cancel"]);
 
-const postStore = usePostStore();
-
 const validationSchema = toTypedSchema(POST_CREATE_SCHEMA);
 
 const { handleSubmit } = useForm({
   validationSchema,
   initialValues: {
-    id: props.post?.id ?? postStore.getIdLastPost() + 1,
+    id:
+      props.post?.id ?? new Date().getTime() + Math.floor(Math.random() * 1000),
     title: props.post?.title,
     briefDescription: props.post?.briefDescription,
     fullDescription: props.post?.fullDescription ?? "",
@@ -55,7 +52,6 @@ const onSubmit = handleSubmit((values) => {
     <div class="wrapper-input" v-for="input in fieldsForm" :key="input.name">
       <label :for="input.name">{{ input.label }}</label>
 
-      <!-- <Field type="text" :name="input.name" :id="input.name" class="input" /> -->
       <Field v-slot="{ field }" :name="input.name">
         <textarea v-bind="field" :id="input.name" class="input" />
       </Field>
