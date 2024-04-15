@@ -1,9 +1,47 @@
-# Vue 3 + TypeScript + Vite
+# Мини Блог
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Клиентская часть SPA веб-приложения для ведения мини-блога
 
-## Recommended Setup
+## Project setup
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+```
+npm install
+```
 
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+### Compiles and hot-reloads for development
+
+```
+npm run dev
+```
+
+### Compiles and minifies for production
+
+```
+npm run build
+```
+
+## Описание
+
+- На главной странице выводится список записей всех пользователей.
+
+- При клике на автора записи осуществляется переход на отдельную страницу, на которой отображаются название его блога и все его записи. Также на этой странице реализованы возможности добавления, редактирования и удаления записей.
+
+- При клике по записи осуществляется переход на отдельную страницу, на которой отображаются полная информация о записи, список комментариев и возможность удалить или добавить комментарий.
+
+### Функционал
+
+- Просмотр всех записей всех пользователей
+
+- Просмотр страницы конкретного пользователя и его записей
+
+- Просмотр страницы конкретной записи с ее комментариями
+
+- Возможность добавлять, редактировать и удалять записи
+
+- Возсожность добавлять и удалять комментарии
+
+### Детали
+
+- Все данные сохраняются в local storage браузера
+
+- Валидация полей записи и комментариев
