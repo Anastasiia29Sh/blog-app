@@ -9,7 +9,9 @@ initialDataStore.initializeData();
 <template>
   <div class="container">
     <header class="header">
-      <router-link to="/" class="p-text-xxl-bold link"> Блог</router-link>
+      <router-link to="/blog-app/" class="p-text-xxl-bold link">
+        Блог
+      </router-link>
     </header>
 
     <div id="app" class="app">

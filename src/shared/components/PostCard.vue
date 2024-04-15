@@ -80,7 +80,7 @@ onClickOutside(modal, () => (isDelete.value = false));
     <div class="footer-card">
       <div
         class="comment"
-        @click="$router.push(`/post/${post.id}#comments`)"
+        @click="$router.push(`/blog-app/post/${post.id}#comments`)"
         style="cursor: pointer"
       >
         <img src="@/assets/icons/comment.svg" alt="" class="icon" />

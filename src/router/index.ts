@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
+    path: '/blog-app/',
     name: 'home',
     meta: {
       title: 'front page',
@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/index.vue'),
   },
   {
-    path: '/user/:id',
+    path: '/blog-app/user/:id',
     name: 'user',
     meta: {
       title: 'front page',
@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/user.vue'),
   },
   {
-    path: '/post/:id',
+    path: '/blog-app/post/:id',
     name: 'post',
     meta: {
       title: 'front page',
